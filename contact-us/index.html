@@ -603,6 +603,7 @@ html, body {
 						<div class="elementor-element elementor-element-583a3606 elementor-widget elementor-widget-text-editor" data-id="583a3606" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
 									Copyright © 2023. All rights reserved
+<div id="ao-lang-wrap"><select id="ao-lang-select" aria-label="Language / Langue / Idioma / 语言"><option value="en">🌐 EN</option><option value="zh-CN">中文</option><option value="ru">RU</option><option value="vi">VI</option><option value="fr">FR</option><option value="es">ES</option></select></div>
 								</div>
 				</div>
 					</div>
@@ -651,6 +652,60 @@ var ekit_config = {"ajaxurl":"https://asiaoutdoors.vn/wp-admin/admin-ajax.php","
 //# sourceURL=elementskit-elementor-js-extra
 </script>
 <script id="elementskit-elementor-js" src="../wp-content/plugins/elementskit-lite/widgets/init/assets/js/elementor.js@ver=3.9.6"></script>
+<!-- Asia Outdoors Language Switcher -->
+<style id="ao-lang-css">
+.goog-te-banner-frame,.goog-te-banner-frame.skiptranslate{display:none!important}
+#goog-gt-tt,.goog-te-spinner-pos{display:none!important}
+.skiptranslate{visibility:hidden;height:0;overflow:hidden;position:absolute!important}
+body{top:0!important}
+.goog-text-highlight{background:none!important;box-shadow:none!important}
+#ao-lang-wrap{display:flex;align-items:center;justify-content:center;margin-top:10px}
+#ao-lang-select{background:transparent;color:rgba(255,255,255,.38);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:3px 22px 3px 8px;font-size:11px;letter-spacing:.07em;font-family:inherit;cursor:pointer;outline:none;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 4'%3E%3Cpath fill='rgba(255,255,255,.28)' d='M0 0l4 4 4-4z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 6px center;background-size:8px 4px;transition:color .25s,border-color .25s}
+#ao-lang-select:hover,#ao-lang-select:focus{color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.28)}
+#ao-lang-select option{background:#0f0f0f;color:#bbb}
+</style>
+<div id="google_translate_element" style="display:none" aria-hidden="true"></div>
+<script>
+(function(){
+  var isRetreat=location.pathname.indexOf('retraite-dws')!==-1;
+  var src=isRetreat?'fr':'en';
+  function getCookieLang(){
+    var m=document.cookie.match(/googtrans=\/[a-z-]+\/([a-z-]+)/i);
+    return m?m[1]:null;
+  }
+  function setLangCookie(v){
+    var h=location.hostname,base=';path=/';
+    document.cookie='googtrans='+v+base;
+    document.cookie='googtrans='+v+base+';domain='+h;
+    document.cookie='googtrans='+v+base+';domain=.'+h;
+  }
+  function initSelect(){
+    var sel=document.getElementById('ao-lang-select');
+    if(!sel)return;
+    var saved=getCookieLang();
+    var dflt=isRetreat?'fr':'en';
+    sel.value=(saved&&saved!==src)?saved:dflt;
+    sel.addEventListener('change',function(){
+      setLangCookie('/'+src+'/'+this.value);
+      location.reload();
+    });
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',initSelect);
+  }else{
+    initSelect();
+  }
+  window.googleTranslateElementInit=function(){
+    new google.translate.TranslateElement({
+      pageLanguage:src,
+      includedLanguages:'en,zh-CN,ru,vi,fr,es',
+      layout:google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay:false
+    },'google_translate_element');
+  };
+})();
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
 <script id="wp-emoji-settings" type="application/json">
 {"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://asiaoutdoors.vn/wp-includes/js/wp-emoji-release.min.js?ver=7.0"}}
 </script>
