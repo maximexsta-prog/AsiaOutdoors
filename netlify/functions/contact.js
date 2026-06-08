@@ -66,6 +66,20 @@ exports.handler = async function (event) {
     };
   }
 
+  // ── Log to Netlify Forms dashboard ────────────────────────────────────────
+  try {
+    await fetch('https://asiaoutdoors.vn/contact-us/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        'form-name': 'contact',
+        name,
+        email,
+        comment
+      }).toString()
+    });
+  } catch (_) { /* non-fatal — email already sent */ }
+
   return {
     statusCode: 200,
     headers: { 'Content-Type': 'application/json' },

@@ -330,6 +330,14 @@ html, body {
 						.ao-submit-btn:hover{box-shadow:0 2px 4px rgba(3,28,90,.4);}
 						.ao-submit-btn:disabled{opacity:.6;cursor:default;}
 					</style>
+					<!-- Hidden form for Netlify submissions dashboard detection -->
+					<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+						<input type="hidden" name="form-name" value="contact">
+						<input name="bot-field">
+						<input name="name">
+						<input name="email">
+						<textarea name="comment"></textarea>
+					</form>
 					<div id="ao-contact-form-wrap">
 						<div id="ao-form-msg"></div>
 						<form id="ao-contact-form" novalidate>
