@@ -331,8 +331,9 @@ html, body {
 						.ao-submit-btn:disabled{opacity:.6;cursor:default;}
 					</style>
 					<div id="ao-contact-form-wrap">
-						<div id="ao-form-msg"></div>
-						<form id="ao-contact-form" novalidate>
+						<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+							<input type="hidden" name="form-name" value="contact">
+							<p style="display:none"><input name="bot-field"></p>
 							<div class="ao-field">
 								<label for="ao-comment">Comments / Questions <span style="color:#FF6700">*</span></label>
 								<textarea id="ao-comment" name="comment" placeholder="Comments" required rows="8"></textarea>
@@ -354,38 +355,6 @@ html, body {
 						</form>
 					</div>
 					<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-					<script>
-					document.getElementById('ao-contact-form').addEventListener('submit',async function(e){
-						e.preventDefault();
-						var btn=this.querySelector('.ao-submit-btn');
-						var msg=document.getElementById('ao-form-msg');
-						var token=this.querySelector('[name="cf-turnstile-response"]');
-						if(!token||!token.value){
-							msg.style.display='block';msg.style.background='#4a1a1a';msg.style.color='#ff9999';
-							msg.textContent='Please complete the bot check.';return;
-						}
-						btn.disabled=true;btn.textContent='Sending...';msg.style.display='none';
-						try{
-							var res=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},
-								body:JSON.stringify({comment:document.getElementById('ao-comment').value,
-								name:document.getElementById('ao-name').value,
-								email:document.getElementById('ao-email').value,token:token.value})});
-							var rawText=await res.text();
-							var data;
-							try{data=JSON.parse(rawText);}catch(e){throw new Error('HTTP '+res.status+': '+rawText.substring(0,200));}
-							if(res.ok&&data.success){
-								msg.style.display='block';msg.style.background='#1a3a1a';msg.style.color='#99ff99';
-								msg.textContent='Message sent! We will get back to you shortly.';
-								this.reset();if(window.turnstile)window.turnstile.reset();
-							}else{throw new Error(data.message||'Failed');}
-						}catch(err){
-							msg.style.display='block';msg.style.background='#4a1a1a';msg.style.color='#ff9999';
-							msg.textContent='DEBUG: '+err.message;
-							btn.disabled=false;btn.textContent='Send Message';
-							if(window.turnstile)window.turnstile.reset();
-						}
-					});
-					</script>
 				</div>
 			</div>
 					</div>
