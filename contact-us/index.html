@@ -380,7 +380,7 @@ html, body {
 							}else{throw new Error(data.message||'Failed');}
 						}catch(err){
 							msg.style.display='block';msg.style.background='#4a1a1a';msg.style.color='#ff9999';
-							msg.textContent='DEBUG: '+err.message;
+							msg.textContent='Something went wrong. Please try again or email info@asiaoutdoors.vn';
 							btn.disabled=false;btn.textContent='Send Message';
 							if(window.turnstile)window.turnstile.reset();
 						}
