@@ -394,7 +394,7 @@ html, body {
 			data-responsive-breakpoint="1024">
 			            <button class="elementskit-menu-hamburger elementskit-menu-toggler"  type="button" aria-label="hamburger-icon">
                 <i aria-hidden="true" class="ekit-menu-icon icon icon-menu-7"></i>            </button>
-            <div id="ekit-megamenu-header-menu" class="elementskit-menu-container elementskit-menu-offcanvas-elements elementskit-navbar-nav-default ekit-nav-menu-one-page- ekit-nav-dropdown-hover"><ul id="menu-header-menu" class="elementskit-navbar-nav elementskit-menu-po-center submenu-click-on-icon"><li id="menu-item-1448" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-281 current_page_item menu-item-1448 nav-item elementskit-mobile-builder-content active" data-vertical-menu=750px><a href="/" class="ekit-menu-nav-link active">Home</a></li>
+            <div id="ekit-megamenu-header-menu" class="elementskit-menu-container elementskit-menu-offcanvas-elements elementskit-navbar-nav-default ekit-nav-menu-one-page- ekit-nav-dropdown-hover"><ul id="menu-header-menu" class="elementskit-navbar-nav elementskit-menu-po-center submenu-click-on-icon"><li id="menu-item-1448" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-281 current_page_item menu-item-1448 nav-item elementskit-mobile-builder-content active" data-vertical-menu=750px><a href="/" class="ekit-menu-nav-link active"><span class="notranslate ao-nav-fix" data-en="Home" data-fr="Accueil" data-zh="首页" data-ru="Главная" data-vi="Trang ch&#7911;" data-es="Inicio">Home</span></a></li>
 <li id="menu-item-2242" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2242 nav-item elementskit-mobile-builder-content" data-vertical-menu=750px><a href="/#sec-1" class="ekit-menu-nav-link">Adventures</a></li>
 <li id="menu-item-1446" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1446 nav-item elementskit-mobile-builder-content" data-vertical-menu=750px><a href="/contact-us/" class="ekit-menu-nav-link">Contact us</a></li>
 <li id="menu-item-3519" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3519 nav-item elementskit-mobile-builder-content" data-vertical-menu=750px><a href="/faq/" class="ekit-menu-nav-link">FAQ</a></li>
@@ -434,7 +434,7 @@ html, body {
 						<div class="elementor-element elementor-element-145cecd7 elementor-widget__width-auto elementor-widget elementor-widget-jkit_nav_menu" data-id="145cecd7" data-element_type="widget" data-e-type="widget" data-settings="{&quot;st_menu_item_text_hover_bg_background_background&quot;:&quot;classic&quot;,&quot;st_submenu_item_text_hover_bg_background_background&quot;:&quot;classic&quot;}" data-widget_type="jkit_nav_menu.default">
 				<div class="elementor-widget-container">
 					<div  class="jeg-elementor-kit jkit-nav-menu break-point-tablet submenu-click-title jeg_module_281__6a2423d212428"  data-item-indicator="&lt;i aria-hidden=&quot;true&quot; class=&quot;jki jki-chevron-down-line&quot;&gt;&lt;/i&gt;"><button aria-label="open-menu" class="jkit-hamburger-menu"><i aria-hidden="true" class="jki jki-menu-line"></i></button>
-        <div class="jkit-menu-wrapper"><div class="jkit-menu-container"><ul id="menu-header-menu-1" class="jkit-menu jkit-menu-direction-flex jkit-submenu-position-top"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-281 current_page_item menu-item-1448"><a href="/" aria-current="page">Home</a></li>
+        <div class="jkit-menu-wrapper"><div class="jkit-menu-container"><ul id="menu-header-menu-1" class="jkit-menu jkit-menu-direction-flex jkit-submenu-position-top"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-281 current_page_item menu-item-1448"><a href="/" aria-current="page"><span class="notranslate ao-nav-fix" data-en="Home" data-fr="Accueil" data-zh="首页" data-ru="Главная" data-vi="Trang ch&#7911;" data-es="Inicio">Home</span></a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2242"><a href="/#sec-1">Adventures</a></li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1446"><a href="/contact-us/">Contact us</a></li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3519"><a href="/faq/">FAQ</a></li>
@@ -1087,6 +1087,14 @@ body{top:0!important}
       else{el.style.display='none';}
     });
   }
+  function updateTextFixes(){
+    var lang=getCookieLang()||src;
+    var map={'zh-CN':'zh','ru':'ru','vi':'vi','fr':'fr','es':'es'};
+    var k=map[lang]||null;
+    document.querySelectorAll('.ao-nav-fix').forEach(function(el){
+      el.textContent=k?(el.getAttribute('data-'+k)||el.getAttribute('data-en')):el.getAttribute('data-en');
+    });
+  }
   function initSelect(){
     var sel=document.getElementById('ao-lang-select');
     if(!sel)return;
@@ -1094,6 +1102,7 @@ body{top:0!important}
     var dflt=isRetreat?'fr':'en';
     sel.value=(saved&&saved!==src)?saved:dflt;
     updateImageLabels();
+    updateTextFixes();
     sel.addEventListener('change',function(){
       setLangCookie('/'+src+'/'+this.value);
       location.reload();
