@@ -25,7 +25,7 @@ exports.handler = async function (event) {
   });
   const tsData = await tsRes.json();
   if (!tsData.success) {
-    return { statusCode: 400, body: JSON.stringify({ success: false, message: 'Bot check failed. Please refresh and try again.' }) };
+    return { statusCode: 400, body: JSON.stringify({ success: false, message: 'Bot check failed: ' + JSON.stringify(tsData['error-codes']) }) };
   }
 
   // ── Send email via SMTP ────────────────────────────────────────────────────

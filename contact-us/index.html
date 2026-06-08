@@ -382,6 +382,7 @@ html, body {
 							msg.style.display='block';msg.style.background='#4a1a1a';msg.style.color='#ff9999';
 							msg.textContent='DEBUG: '+err.message;
 							btn.disabled=false;btn.textContent='Send Message';
+							if(window.turnstile)window.turnstile.reset();
 						}
 					});
 					</script>
