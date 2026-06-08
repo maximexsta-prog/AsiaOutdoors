@@ -48,7 +48,7 @@ exports.handler = async function (event) {
 
   try {
     await transporter.sendMail({
-      from: `"Asia Outdoors Website" <${process.env.SMTP_USER}>`,
+      from: `"Asia Outdoors Website" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
       to: process.env.CONTACT_TO || 'info@asiaoutdoors.vn',
       replyTo: email,
       subject: `Contact Form – message from ${name}`,
