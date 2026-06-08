@@ -271,15 +271,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         display: none !important;
     }
 }
-/* Hero background: force image on all devices, override all Elementor cascade */
-.elementor-element.elementor-element-2eadce76,
-.elementor-element.elementor-element-2eadce76:not(.elementor-motion-effects-element-type-background) {
-    background-image: url("wp-content/uploads/2026/03/pexels-photo-27454425-scaled.jpeg") !important;
-    background-position: center center !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-attachment: scroll !important;
-}
+
 </style>
 <link rel='stylesheet' id='widget-image-css' href='wp-content/plugins/elementor/assets/css/widget-image.min.css@ver=4.0.9.css' media='all' />
 <link rel='stylesheet' id='e-animation-fadeIn-css' href='wp-content/plugins/elementor/assets/lib/animations/styles/fadeIn.min.css@ver=4.0.9.css' media='all' />
@@ -347,18 +339,13 @@ html, body {
     --padding-right: 10px !important;
 }
 </style>
-<style id="ao-slideshow">/* Hero slideshow: clip Ken Burns zoom within section boundary */
-.elementor-element-6fcac41{overflow:hidden;}
-.elementor-background-slideshow{overflow:hidden;}
-.elementor-background-slideshow__slide{overflow:hidden;}
-/* Mobile+tablet hero: CSS fallback background in case JS slideshow/video doesn't initialize */
-@media (max-width:1024px){
-  .elementor-element-6fcac41{
-    background-image:url('wp-content/uploads/2026/01/Vietnam-Lan-Ha-Bay-001.webp')!important;
-    background-size:cover!important;
-    background-position:center center!important;
-  }
-}
+<style id="ao-slideshow">/* Hero slideshow – 6 images, pure CSS, no Elementor JS dependency */
+.elementor-element-6fcac41{overflow:hidden;position:relative;}
+.elementor-element-6fcac41 .elementor-background-slideshow{display:none!important;}
+#ao-hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;}
+.ao-hs{position:absolute;inset:0;background-size:cover;background-position:center center;opacity:0;animation:ao-hs-show 42s ease-in-out infinite;will-change:opacity,transform;backface-visibility:hidden;}
+.ao-hs:nth-child(1){animation-delay:0s}.ao-hs:nth-child(2){animation-delay:7s}.ao-hs:nth-child(3){animation-delay:14s}.ao-hs:nth-child(4){animation-delay:21s}.ao-hs:nth-child(5){animation-delay:28s}.ao-hs:nth-child(6){animation-delay:35s}
+@keyframes ao-hs-show{0%{opacity:0;transform:scale(1.06)}4%{opacity:1;transform:scale(1.04)}14%{opacity:1;transform:scale(1.01)}17%{opacity:0;transform:scale(1.00)}100%{opacity:0;transform:scale(1.00)}}
 /* Testimonials nav: spread arrows left and right instead of center */
 .elementor-element-7f72b392 .tns-controls{display:flex!important;justify-content:space-between!important;text-align:initial!important;margin-top:15px!important;padding:0 40px!important;}
 .elementor-element-7f72b392 .tns-controls button{display:block!important;}
@@ -454,7 +441,7 @@ html, body {
 		</div>
 					</div>
 		</section>
-				<section class="elementor-section elementor-top-section elementor-element elementor-element-6fcac41 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6fcac41" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;slideshow&quot;,&quot;background_slideshow_gallery&quot;:[{&quot;id&quot;:2310,&quot;url&quot;:&quot;https:\/\/asiaoutdoors.vn\/wp-content\/uploads\/2026\/03\/pexels-photo-27454425-scaled.jpeg&quot;},{&quot;id&quot;:1473,&quot;url&quot;:&quot;https:\/\/asiaoutdoors.vn\/wp-content\/uploads\/2026\/01\/Vietnam-Lan-Ha-Bay-001.webp&quot;},{&quot;id&quot;:329,&quot;url&quot;:&quot;https:\/\/asiaoutdoors.vn\/wp-content\/uploads\/2026\/01\/Baie-dHalong-Cat-Ba3-1600x1062-2.jpg&quot;}],&quot;background_slideshow_slide_duration&quot;:6000,&quot;background_slideshow_transition_duration&quot;:1000,&quot;background_slideshow_ken_burns&quot;:&quot;yes&quot;,&quot;background_slideshow_loop&quot;:&quot;yes&quot;,&quot;background_slideshow_slide_transition&quot;:&quot;fade&quot;,&quot;background_slideshow_ken_burns_zoom_direction&quot;:&quot;in&quot;}">
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-6fcac41 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6fcac41" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;slideshow&quot;,&quot;background_slideshow_gallery&quot;:[{&quot;id&quot;:2310,&quot;url&quot;:&quot;https:\/\/asiaoutdoors.vn\/wp-content\/uploads\/2026\/03\/pexels-photo-27454425-scaled.jpeg&quot;},{&quot;id&quot;:1473,&quot;url&quot;:&quot;https:\/\/asiaoutdoors.vn\/wp-content\/uploads\/2026\/01\/Vietnam-Lan-Ha-Bay-001.webp&quot;},{&quot;id&quot;:329,&quot;url&quot;:&quot;https:\/\/asiaoutdoors.vn\/wp-content\/uploads\/2026\/01\/Baie-dHalong-Cat-Ba3-1600x1062-2.jpg&quot;}],&quot;background_slideshow_slide_duration&quot;:6000,&quot;background_slideshow_transition_duration&quot;:1000,&quot;background_slideshow_ken_burns&quot;:&quot;yes&quot;,&quot;background_slideshow_loop&quot;:&quot;yes&quot;,&quot;background_slideshow_slide_transition&quot;:&quot;fade&quot;,&quot;background_slideshow_ken_burns_zoom_direction&quot;:&quot;in&quot;}"><div id="ao-hero-bg"><div class="ao-hs" style="background-image:url(wp-content/uploads/2026/06/hero-1-catba.jpg)"></div><div class="ao-hs" style="background-image:url(wp-content/uploads/2026/06/hero-2-lanhabay.webp)"></div><div class="ao-hs" style="background-image:url(wp-content/uploads/2026/06/hero-3-boat.jpg)"></div><div class="ao-hs" style="background-image:url(wp-content/uploads/2026/06/hero-4-sunrise.jpg)"></div><div class="ao-hs" style="background-image:url(wp-content/uploads/2026/06/hero-5-panorama.jpeg)"></div><div class="ao-hs" style="background-image:url(wp-content/uploads/2026/06/hero-6-island.jpeg)"></div></div>
 							<div class="elementor-background-overlay"></div>
 							<div class="elementor-container elementor-column-gap-no">
 					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-128b04e1" data-id="128b04e1" data-element_type="column" data-e-type="column">
