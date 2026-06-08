@@ -25,17 +25,17 @@ exports.handler = async function (event) {
   });
   const tsData = await tsRes.json();
   if (!tsData.success) {
-    return { statusCode: 400, body: JSON.stringify({ success: false, message: 'Bot check failed: ' + JSON.stringify(tsData['error-codes']) }) };
+    return { statusCode: 400, body: JSON.stringify({ success: false, message: 'Bot check failed. Please refresh and try again.' }) };
   }
 
-  // ── Send email via SMTP ────────────────────────────────────────────────────
-  // Required Netlify env vars:
-  //   SMTP_HOST       e.g. smtp.gmail.com
-  //   SMTP_PORT       e.g. 587
-  //   SMTP_SECURE     true (port 465) | false (port 587)
-  //   SMTP_USER       your sending email address
-  //   SMTP_PASS       Gmail App Password or SMTP password
-  //   CONTACT_TO      recipient, defaults to info@asiaoutdoors.vn
+  // ── Send email via cPanel SMTP ─────────────────────────────────────────────
+  // Netlify env vars required:
+  //   SMTP_HOST     e.g. mail.asiaoutdoors.vn
+  //   SMTP_PORT     587
+  //   SMTP_SECURE   false
+  //   SMTP_USER     info@asiaoutdoors.vn
+  //   SMTP_PASS     cPanel email password
+  //   CONTACT_TO    info@asiaoutdoors.vn
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: parseInt(process.env.SMTP_PORT || '587', 10),
