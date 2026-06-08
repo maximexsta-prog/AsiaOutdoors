@@ -1,0 +1,13 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Asia Outdoors",
+  "name_for_model": "asia_outdoors",
+  "description_for_human": "Asia Outdoors — guided rock climbing, Deep Water Solo (DWS), and sea kayaking on Cat Ba Island, Vietnam.",
+  "description_for_model": "Asia Outdoors is a licensed adventure tourism company on Cat Ba Island in Vietnam. They offer guided Deep Water Solo (DWS/psicobloc), rock climbing, and sea kayaking in Lan Ha Bay — adjacent to Ha Long Bay. Located at 225 Mot Thang Tu, To 19, Cat Ba, Hai Phong, VN. Contact: +84-338-715-366, info@asiaoutdoors.vn. Open daily 07:00-20:00. They hold an official operating license from Cat Ba National Park. Rated 5/5 by guests. Prices include gear, guides, harbor entry, lunch, and transport.",
+  "auth": {
+    "type": "none"
+  },
+  "logo_url": "https://asiaoutdoors.vn/wp-content/uploads/2026/04/Logo_AO_White_Transparent-1.png",
+  "contact_email": "info@asiaoutdoors.vn",
+  "legal_info_url": "https://asiaoutdoors.vn/"
+}
