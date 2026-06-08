@@ -46,17 +46,25 @@ exports.handler = async function (event) {
     }
   });
 
-  await transporter.sendMail({
-    from: `"Asia Outdoors Website" <${process.env.SMTP_USER}>`,
-    to: process.env.CONTACT_TO || 'info@asiaoutdoors.vn',
-    replyTo: email,
-    subject: `Contact Form – message from ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${comment}`,
-    html: `<p><strong>Name:</strong> ${name}</p>
+  try {
+    await transporter.sendMail({
+      from: `"Asia Outdoors Website" <${process.env.SMTP_USER}>`,
+      to: process.env.CONTACT_TO || 'info@asiaoutdoors.vn',
+      replyTo: email,
+      subject: `Contact Form – message from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${comment}`,
+      html: `<p><strong>Name:</strong> ${name}</p>
 <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
 <hr>
 <p>${comment.replace(/\n/g, '<br>')}</p>`
-  });
+    });
+  } catch (smtpErr) {
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ success: false, message: 'SMTP error: ' + smtpErr.message })
+    };
+  }
 
   return {
     statusCode: 200,
