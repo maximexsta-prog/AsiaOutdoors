@@ -143,6 +143,14 @@ html, body {
 .elementor-element-6fcac41{overflow:hidden;}
 .elementor-background-slideshow{overflow:hidden;}
 .elementor-background-slideshow__slide{overflow:hidden;}
+/* Mobile hero: CSS fallback background in case JS slideshow/video doesn't initialize */
+@media (max-width:767px){
+  .elementor-element-6fcac41{
+    background-image:url('wp-content/uploads/2026/01/Vietnam-Lan-Ha-Bay-001.webp')!important;
+    background-size:cover!important;
+    background-position:center center!important;
+  }
+}
 /* Testimonials nav: spread arrows left and right instead of center */
 .elementor-element-7f72b392 .tns-controls{display:flex!important;justify-content:space-between!important;text-align:initial!important;margin-top:15px!important;padding:0 40px!important;}
 .elementor-element-7f72b392 .tns-controls button{display:block!important;}</style></head>
@@ -324,7 +332,7 @@ html, body {
 			<div class="elementor-widget-wrap elementor-element-populated">
 				<div class="elementor-element elementor-element-05c5243 e-con-full e-flex e-con e-parent" data-id="05c5243" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;https:\/\/asiaoutdoors.vn\/wp-content\/uploads\/2025\/11\/vidweb.mp4&quot;,&quot;background_video_start&quot;:1,&quot;background_video_end&quot;:54,&quot;background_play_on_mobile&quot;:&quot;yes&quot;}">
 		<div class="elementor-background-video-container">
-							<video class="elementor-background-video-hosted" role="presentation" autoplay muted playsinline loop src="wp-content/uploads/2025/11/vidweb.mp4"></video>
+							<video class="elementor-background-video-hosted" role="presentation" autoplay muted playsinline loop poster="wp-content/uploads/2026/01/Vietnam-Lan-Ha-Bay-001.webp" src="wp-content/uploads/2025/11/vidweb.mp4"></video>
 					</div><div class="elementor-element elementor-element-93d8cef e-con-full e-flex e-con e-child" data-id="93d8cef" data-element_type="container" data-e-type="container">
 				<div class="elementor-element elementor-element-5011a96 elementor-widget elementor-widget-spacer" data-id="5011a96" data-element_type="widget" data-e-type="widget" data-widget_type="spacer.default">
 				<div class="elementor-widget-container">
