@@ -370,7 +370,9 @@ html, body {
 								body:JSON.stringify({comment:document.getElementById('ao-comment').value,
 								name:document.getElementById('ao-name').value,
 								email:document.getElementById('ao-email').value,token:token.value})});
-							var data=await res.json();
+							var rawText=await res.text();
+							var data;
+							try{data=JSON.parse(rawText);}catch(e){throw new Error('HTTP '+res.status+': '+rawText.substring(0,200));}
 							if(res.ok&&data.success){
 								msg.style.display='block';msg.style.background='#1a3a1a';msg.style.color='#99ff99';
 								msg.textContent='Message sent! We will get back to you shortly.';
@@ -378,7 +380,7 @@ html, body {
 							}else{throw new Error(data.message||'Failed');}
 						}catch(err){
 							msg.style.display='block';msg.style.background='#4a1a1a';msg.style.color='#ff9999';
-							msg.textContent='Something went wrong. Please try again or email info@asiaoutdoors.vn';
+							msg.textContent='DEBUG: '+err.message;
 							btn.disabled=false;btn.textContent='Send Message';
 						}
 					});
