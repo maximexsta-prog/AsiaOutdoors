@@ -1142,7 +1142,20 @@ body{top:0!important}
 
 
 
+
+
 <script>
+function fixCornerDropdown() {
+    const wrapper = document.getElementById('ao-nav-lang-wrap');
+    if (wrapper) {
+        wrapper.style.position = 'static';
+        wrapper.style.top = 'auto';
+        wrapper.style.right = 'auto';
+        return true; // Fixed successfully
+    }
+    return false;
+}
+
 function fixLanguageDropdowns() {
     // Hide center dropdown on desktop
     const center = document.getElementById('ao-drawer-lang-select');
@@ -1150,12 +1163,13 @@ function fixLanguageDropdowns() {
         center.style.display = 'none';
     }
 
-    // Make corner dropdown static
-    const cornerWrapper = document.getElementById('ao-nav-lang-wrap');
-    if (cornerWrapper) {
-        cornerWrapper.style.position = 'static';
-        cornerWrapper.style.top = 'auto';
-        cornerWrapper.style.right = 'auto';
+    // Keep trying to fix the corner dropdown
+    if (!fixCornerDropdown()) {
+        const interval = setInterval(() => {
+            if (fixCornerDropdown()) {
+                clearInterval(interval);
+            }
+        }, 200);
     }
 }
 
