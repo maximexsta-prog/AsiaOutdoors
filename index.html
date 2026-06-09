@@ -373,30 +373,31 @@ html, body {
 }
 
 <style>
-/* === Make Language Switcher Static (Not Fixed) === */
-#ao-nav-lang-wrap {
+<style>
+/* === Fix 1: Hide the mobile-only dropdown on desktop === */
+#ao-drawer-lang-wrap,
+#ao-drawer-lang-select {
+    display: none !important;
+}
+
+/* Show it only on mobile/tablet */
+@media (max-width: 1024px) {
+    #ao-drawer-lang-wrap,
+    #ao-drawer-lang-select {
+        display: block !important;
+    }
+}
+
+/* === Fix 2: Make the desktop language switcher static (not fixed) === */
+#ao-nav-lang-wrap,
+#ao-nav-lang-select {
     position: static !important;
     top: auto !important;
     right: auto !important;
-    margin: 10px 20px 0 0;
-    z-index: 9999;
+    margin: 10px 20px 0 0 !important;
 }
+</style>
 
-/* Optional: Better styling for the language dropdown */
-#ao-nav-lang-select {
-    background: rgba(0, 0, 0, 0.25);
-    color: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    border-radius: 20px;
-    padding: 6px 26px 6px 12px;
-    font-size: 12px;
-    cursor: pointer;
-}
-
-#ao-nav-lang-select:hover {
-    background: rgba(0, 0, 0, 0.4);
-    border-color: rgba(255, 255, 255, 0.7);
-}
 </style>
 
 
