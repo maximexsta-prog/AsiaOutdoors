@@ -373,32 +373,28 @@ html, body {
 }
 
 <style>
-<style>
-/* === Fix 1: Hide the mobile-only dropdown on desktop === */
-#ao-drawer-lang-wrap,
-#ao-drawer-lang-select {
+/* === Hide only the CENTER dropdown on desktop === */
+#ao-drawer-lang-wrap {
     display: none !important;
 }
 
-/* Show it only on mobile/tablet */
+/* Show the drawer version only on mobile */
 @media (max-width: 1024px) {
-    #ao-drawer-lang-wrap,
-    #ao-drawer-lang-select {
+    #ao-drawer-lang-wrap {
         display: block !important;
     }
 }
 
-/* === Fix 2: Make the desktop language switcher static (not fixed) === */
-#ao-nav-lang-wrap,
-#ao-nav-lang-select {
+/* === Make the CORNER dropdown static (not fixed) === */
+#ao-nav-lang-wrap {
     position: static !important;
     top: auto !important;
     right: auto !important;
     margin: 10px 20px 0 0 !important;
+    display: inline-flex !important;
 }
 </style>
 
-</style>
 
 
 </style></head>
