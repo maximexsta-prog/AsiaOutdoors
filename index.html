@@ -1144,26 +1144,26 @@ body{top:0!important}
 
 <script>
 function fixLanguageDropdowns() {
-    // Only hide the CENTER dropdown on desktop
-    const center = document.getElementById('ao-drawer-lang-select');
-    if (center && window.innerWidth > 1024) {
-        center.style.display = 'none';
+    // Hide only the center dropdown on desktop
+    const centerDropdown = document.getElementById('ao-drawer-lang-select');
+    if (centerDropdown && window.innerWidth > 1024) {
+        centerDropdown.style.display = 'none';
     }
 
-    // Only make the CORNER dropdown static (don't hide it)
-    const corner = document.getElementById('ao-nav-lang-select');
-    if (corner) {
-        const parent = corner.parentElement;
-        if (parent) {
-            parent.style.position = 'static';
-            parent.style.top = 'auto';
-            parent.style.right = 'auto';
-        }
+    // Make corner dropdown static (safer method)
+    const cornerDropdown = document.getElementById('ao-nav-lang-select');
+    if (cornerDropdown) {
+        // Only change the style of the select itself, not the parent
+        cornerDropdown.style.position = 'static';
     }
 }
 
+// Add small delay to avoid flash
+setTimeout(fixLanguageDropdowns, 300);
+
 window.addEventListener('load', fixLanguageDropdowns);
 </script>
+
 
 
 
