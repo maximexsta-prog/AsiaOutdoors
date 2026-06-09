@@ -433,6 +433,17 @@ html, body {
 															<img decoding="async" width="1307" height="1420" src="wp-content/uploads/2026/04/Logo_AO_White_Transparent-1.png" class="attachment-full size-full wp-image-4324" alt="" srcset="wp-content/uploads/2026/04/Logo_AO_White_Transparent-1.png 1307w, wp-content/uploads/2026/04/Logo_AO_White_Transparent-1-276x300.png 276w, wp-content/uploads/2026/04/Logo_AO_White_Transparent-1-943x1024.png 943w, wp-content/uploads/2026/04/Logo_AO_White_Transparent-1-768x834.png 768w" sizes="(max-width: 1307px) 100vw, 1307px" />															</div>
 				</div>
 					</div>
+
+
+			<select id="language-switcher" style="padding: 6px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.4); background: rgba(0,0,0,0.25); color: white; font-size: 12px; cursor: pointer;">
+  			  <option value="en">🌐 English</option>
+  			  <option value="fr">Français</option>
+  			  <option value="zh-CN">中文</option>
+ 			   <option value="ru">Русский</option>
+  			  <option value="vi">Tiếng Việt</option>
+   			 <option value="es">Español</option>
+			</select>
+
 		</div>
 				<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-274c8fcf" data-id="274c8fcf" data-element_type="column" data-e-type="column">
 			<div class="elementor-widget-wrap elementor-element-populated">
@@ -1145,36 +1156,24 @@ body{top:0!important}
 
 
 <script>
-function fixCornerDropdown() {
-    const wrapper = document.getElementById('ao-nav-lang-wrap');
-    if (wrapper) {
-        wrapper.style.position = 'static';
-        wrapper.style.top = 'auto';
-        wrapper.style.right = 'auto';
-        return true; // Fixed successfully
-    }
-    return false;
-}
-
-function fixLanguageDropdowns() {
-    // Hide center dropdown on desktop
-    const center = document.getElementById('ao-drawer-lang-select');
-    if (center && window.innerWidth > 1024) {
-        center.style.display = 'none';
-    }
-
-    // Keep trying to fix the corner dropdown
-    if (!fixCornerDropdown()) {
-        const interval = setInterval(() => {
-            if (fixCornerDropdown()) {
-                clearInterval(interval);
-            }
-        }, 200);
-    }
-}
-
-setTimeout(fixLanguageDropdowns, 300);
-window.addEventListener('load', fixLanguageDropdowns);
+document.addEventListener('DOMContentLoaded', function() {
+    const select = document.getElementById('language-switcher');
+    
+    select.addEventListener('change', function() {
+        const lang = this.value;
+        
+        // Use Google Translate
+        const googleFrame = document.querySelector('.goog-te-combo');
+        if (googleFrame) {
+            googleFrame.value = lang;
+            googleFrame.dispatchEvent(new Event('change'));
+        } else {
+            // Fallback: reload with Google Translate cookie
+            document.cookie = `googtrans=/en/${lang};path=/`;
+            location.reload();
+        }
+    });
+});
 </script>
 
 
