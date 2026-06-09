@@ -370,7 +370,37 @@ html, body {
   .elementor-element-2b058e1f .elementskit-nav-logo{margin:15px 0 20px 25px!important;}
   .elementor-element-2b058e1f .elementskit-navbar-nav>li>a{font-size:20px!important;padding:14px 20px 14px 30px!important;font-weight:600!important;}
   .elementor-element-2b058e1f button.elementskit-menu-close{font-size:32px!important;width:50px!important;height:50px!important;margin:10px!important;}
-}</style></head>
+}
+
+<style>
+/* === Make Language Switcher Static (Not Fixed) === */
+#ao-nav-lang-wrap {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    margin: 10px 20px 0 0;
+    z-index: 9999;
+}
+
+/* Optional: Better styling for the language dropdown */
+#ao-nav-lang-select {
+    background: rgba(0, 0, 0, 0.25);
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 6px 26px 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#ao-nav-lang-select:hover {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+</style>
+
+
+</style></head>
 <body class="home wp-singular page-template page-template-elementor_header_footer page page-id-281 wp-embed-responsive wp-theme-hello-elementor jkit-color-scheme hello-elementor-default elementor-default elementor-template-full-width elementor-kit-4030 elementor-page elementor-page-281">
 
 
