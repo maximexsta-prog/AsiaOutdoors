@@ -1144,25 +1144,28 @@ body{top:0!important}
 
 <script>
 function fixLanguageDropdowns() {
-    // Hide only the center dropdown on desktop
+    // Hide center dropdown on desktop
     const centerDropdown = document.getElementById('ao-drawer-lang-select');
     if (centerDropdown && window.innerWidth > 1024) {
         centerDropdown.style.display = 'none';
     }
 
-    // Make corner dropdown static (safer method)
+    // Make corner dropdown static
     const cornerDropdown = document.getElementById('ao-nav-lang-select');
     if (cornerDropdown) {
-        // Only change the style of the select itself, not the parent
-        cornerDropdown.style.position = 'static';
+        const wrapper = cornerDropdown.parentElement;
+        if (wrapper) {
+            wrapper.style.position = 'static';
+            wrapper.style.top = 'auto';
+            wrapper.style.right = 'auto';
+        }
     }
 }
 
-// Add small delay to avoid flash
 setTimeout(fixLanguageDropdowns, 300);
-
 window.addEventListener('load', fixLanguageDropdowns);
 </script>
+
 
 
 
