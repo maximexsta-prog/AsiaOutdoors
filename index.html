@@ -1051,6 +1051,7 @@ var ekit_config = {"ajaxurl":"https://asiaoutdoors.vn/wp-admin/admin-ajax.php","
 .skiptranslate{visibility:hidden;height:0;overflow:hidden;position:absolute!important}
 body{top:0!important}
 .goog-text-highlight{background:none!important;box-shadow:none!important}
+<<<<<<< HEAD
 .goog-te-gadget,.goog-te-combo,body>.skiptranslate{display:none!important;visibility:hidden!important;width:0!important;height:0!important;overflow:hidden!important;position:absolute!important;left:-9999px!important}
 #ao-footer-lang-wrap{display:flex;align-items:center;justify-content:flex-start;margin-top:20px}
 #ao-footer-lang-select{background:rgba(0,0,0,.25);color:rgba(255,255,255,.90);border:1px solid rgba(255,255,255,.45);border-radius:3px;padding:3px 22px 3px 8px;font-size:11px;letter-spacing:.07em;font-family:inherit;cursor:pointer;outline:none;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 4'%3E%3Cpath fill='rgba(255,255,255,.75)' d='M0 0l4 4 4-4z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 6px center;background-size:8px 4px;transition:color .25s,border-color .25s}
@@ -1065,6 +1066,12 @@ body{top:0!important}
 .elementor-element-15fccb09 #ao-drawer-lang-wrap{display:none!important;}
 #ao-drawer-lang-select{background:rgba(33,30,31,.07);color:#211E1F;border:1px solid rgba(33,30,31,.20);border-radius:20px;padding:9px 30px 9px 16px;font-size:17px;font-family:inherit;cursor:pointer;outline:none;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 4'%3E%3Cpath fill='rgba(33,30,31,.5)' d='M0 0l4 4 4-4z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;background-size:8px 4px;}
 #ao-drawer-lang-select option{background:#0f0f0f;color:#bbb}
+=======
+#ao-lang-wrap{display:flex;align-items:center;justify-content:flex-start;margin-top:20px}
+#ao-lang-select{background:rgba(0,0,0,.25);color:rgba(255,255,255,.90);border:1px solid rgba(255,255,255,.45);border-radius:3px;padding:3px 22px 3px 8px;font-size:11px;letter-spacing:.07em;font-family:inherit;cursor:pointer;outline:none;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 4'%3E%3Cpath fill='rgba(255,255,255,.75)' d='M0 0l4 4 4-4z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 6px center;background-size:8px 4px;transition:color .25s,border-color .25s}
+#ao-lang-select:hover,#ao-lang-select:focus{background:rgba(0,0,0,.38);color:#fff;border-color:rgba(255,255,255,.70)}
+#ao-lang-select option{background:#0f0f0f;color:#bbb}
+>>>>>>> parent of 2f885a2 (Add language dropdown to top nav bar and mobile hamburger drawer)
 </style>
 <div id="google_translate_element" style="display:none" aria-hidden="true"></div>
 <script>
@@ -1116,17 +1123,29 @@ body{top:0!important}
     });
   }
   function initSelect(){
+<<<<<<< HEAD
     removeUnwantedLanguageControls();
     (function(){var opts='<option value="en">🌐 EN</option><option value="zh-CN">中文</option><option value="ru">RU</option><option value="vi">VI</option><option value="fr">FR</option><option value="es">ES</option>';if(!document.getElementById('ao-nav-lang-wrap')){var wd=document.createElement('div');wd.id='ao-nav-lang-wrap';var sd=document.createElement('select');sd.id='ao-nav-lang-select';sd.className='notranslate';sd.setAttribute('aria-label','Language');sd.innerHTML=opts;wd.appendChild(sd);document.body.appendChild(wd);}var dr=document.querySelector('.elementskit-menu-container');if(dr&&!document.getElementById('ao-drawer-lang-wrap')){var wm=document.createElement('div');wm.id='ao-drawer-lang-wrap';var sm=document.createElement('select');sm.id='ao-drawer-lang-select';sm.className='notranslate';sm.setAttribute('aria-label','Language');sm.innerHTML=opts;wm.appendChild(sm);var panel=dr.querySelector('.elementskit-nav-identity-panel');if(panel)dr.insertBefore(wm,panel);else dr.appendChild(wm);}if(!document.getElementById('ao-footer-lang-wrap')){var ft=document.querySelector('.elementor-element-5a5115b8 > .elementor-widget-wrap,.elementor-element-5b6a6a7d > .elementor-widget-wrap,.elementor-element-86c0f2b .elementor-widget-container');if(ft){var wf=document.createElement('div');wf.id='ao-footer-lang-wrap';var sf=document.createElement('select');sf.id='ao-footer-lang-select';sf.className='notranslate';sf.setAttribute('aria-label','Language');sf.innerHTML=opts;wf.appendChild(sf);ft.appendChild(wf);}}})();
+=======
+    var sel=document.getElementById('ao-lang-select');
+    if(!sel)return;
+>>>>>>> parent of 2f885a2 (Add language dropdown to top nav bar and mobile hamburger drawer)
     var saved=getCookieLang();
     var dflt=isRetreat?'fr':'en';
-    var cur=(saved&&saved!==src)?saved:dflt;
+    sel.value=(saved&&saved!==src)?saved:dflt;
     updateImageLabels();
     updateTextFixes();
+<<<<<<< HEAD
     ['ao-nav-lang-select','ao-footer-lang-select','ao-drawer-lang-select'].forEach(function(id){var s=document.getElementById(id);if(!s)return;s.value=cur;s.addEventListener('change',function(){setLangCookie('/'+src+'/'+this.value);location.reload();});});
     removeUnwantedLanguageControls();
     setTimeout(removeUnwantedLanguageControls,500);
     setTimeout(removeUnwantedLanguageControls,1500);
+=======
+    sel.addEventListener('change',function(){
+      setLangCookie('/'+src+'/'+this.value);
+      location.reload();
+    });
+>>>>>>> parent of 2f885a2 (Add language dropdown to top nav bar and mobile hamburger drawer)
   }
   if(document.readyState==='loading'){
     document.addEventListener('DOMContentLoaded',initSelect);
