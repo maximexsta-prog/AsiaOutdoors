@@ -6,6 +6,18 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["-y", "http-server", "-p", "8741", "-c-1"],
       "port": 8741
+    },
+    {
+      "name": "tesla-watch",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "http-server", "C:/Users/Main/Documents/tesla-watch", "-p", "8743", "-c-1"],
+      "port": 8743
+    },
+    {
+      "name": "liveness",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "http-server", "C:/Users/Main/Documents/GitHub/CoreAlivenessProject", "-p", "8742", "-c-1"],
+      "port": 8742
     }
   ]
 }
