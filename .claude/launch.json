@@ -14,6 +14,12 @@
       "port": 8743
     },
     {
+      "name": "dws-dashboard",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "http-server", "C:/Users/Main/Documents/GitHub/dws-dashboard", "-p", "8744", "-c-1"],
+      "port": 8744
+    },
+    {
       "name": "liveness",
       "runtimeExecutable": "npx",
       "runtimeArgs": ["-y", "http-server", "C:/Users/Main/Documents/GitHub/CoreAlivenessProject", "-p", "8742", "-c-1"],
