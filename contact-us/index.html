@@ -2,6 +2,9 @@
 <html lang="en-US" prefix="og: https://ogp.me/ns#">
 <head>
 	<meta charset="UTF-8">
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BBXWYRQ43D"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BBXWYRQ43D');</script>
 		
 <!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
 <title>Contact Asia Outdoors – Book Rock Climbing &amp; DWS in Cat Ba, Vietnam</title>
@@ -454,7 +457,7 @@ html, body {
 							try{data=JSON.parse(rawText);}catch(e){throw new Error('HTTP '+res.status+': '+rawText.substring(0,200));}
 							if(res.ok&&data.success){
 								msg.style.display='block';msg.style.background='#1a3a1a';msg.style.color='#99ff99';
-								msg.textContent='Message sent! We will get back to you shortly.';
+								msg.textContent='Message sent! We will get back to you shortly.';if(typeof gtag==='function')gtag('event','generate_lead',{event_category:'contact',event_label:'contact_form'});
 								this.reset();if(window.turnstile)window.turnstile.reset();
 							}else{throw new Error(data.message||'Failed');}
 						}catch(err){
