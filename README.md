@@ -30,16 +30,22 @@ Consequences:
 | `index.html` | Home page (Elementor template 281) |
 | `faq/index.html` | FAQ (template 550) |
 | `contact-us/index.html` | Contact, form posts to `/api/contact` (template 1330) |
-| `retraite-dws.html` | French DWS retreat page (template 2898) |
 | `netlify/functions/` | Serverless functions (contact form + Turnstile verification) |
 | `wp-content/`, `wp-includes/` | Static assets (images, CSS, JS) — referenced by the pages |
 | `llms.txt`, `llms-fr.txt`, `ai-plugin.json` | AI/LLM discovery files |
 
+## Retired pages
+
+- `/retraite-dws` (the French DWS retreat page) was removed on 2026-09-13.
+  It now lives at <https://corealivenessproject.com/retraite-dws-nov-2026/?lang=en>
+  and `netlify.toml` 301-redirects the old URL there. Do not re-create the page —
+  a file at that path would have to be deleted again for the redirect to matter.
+
 ## Conventions
 
-- The four pages share custom code (language switcher, hero slideshow,
+- The three pages share custom code (language switcher, hero slideshow,
   mobile drawer fixes) but have **different Elementor element IDs** — apply
-  shared changes to all four files individually.
+  shared changes to all three files individually.
 - Language switching is Google-Translate-cookie based (`googtrans`); three
   synced `<select>`s: footer, fixed top-right pill, mobile drawer.
 - Files use CRLF line endings.

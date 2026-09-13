@@ -9,3 +9,24 @@
   to = "/.netlify/functions/contact"
   status = 200
   force = true
+
+# The French DWS retreat page was retired from this site on 2026-09-13.
+# It now lives on Core Aliveness Project. 301 (permanent) so search engines
+# and AI crawlers transfer the old URL's ranking to the new home.
+[[redirects]]
+  from = "/retraite-dws"
+  to = "https://corealivenessproject.com/retraite-dws-nov-2026/?lang=en"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/retraite-dws/*"
+  to = "https://corealivenessproject.com/retraite-dws-nov-2026/?lang=en"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/retraite-dws.html"
+  to = "https://corealivenessproject.com/retraite-dws-nov-2026/?lang=en"
+  status = 301
+  force = true
