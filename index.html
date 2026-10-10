@@ -275,13 +275,19 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 @media (min-width: 1025px) {.elementor-element.elementor-element-7f72b392 .jeg-elementor-kit.jkit-testimonials .testimonials-track:not(.tns-slider) { display: flex; flex-direction: row; } }@media (min-width: 1025px) {.elementor-element.elementor-element-7f72b392 .jeg-elementor-kit.jkit-testimonials .testimonials-track:not(.tns-slider) .testimonial-item { width: calc(4) } }@media (min-width: 1025px) {.elementor-element.elementor-element-7f72b392 .jeg-elementor-kit.jkit-testimonials .testimonials-track:not(.tns-slider) .testimonial-item:nth-child(n+5) { display: none; } }@media (min-width: 1025px) {.elementor-element.elementor-element-7f72b392 .jeg-elementor-kit.jkit-testimonials .testimonials-track:not(.tns-slider):not(:nth-child(4)) { margin-right: 10px; } }@media (min-width: 768px) and (max-width: 1024px) {.elementor-element.elementor-element-7f72b392 .jeg-elementor-kit.jkit-testimonials .testimonials-track:not(.tns-slider) { display: flex; flex-direction: row; } }@media (min-width: 768px) and (max-width: 1024px) {.elementor-element.elementor-element-7f72b392 .jeg-elementor-kit.jkit-testimonials .testimonials-track:not(.tns-slider) .testimonial-item { width: calc(2) } }@media (min-width: 768px) and (max-width: 1024px) {.elementor-element.elementor-element-7f72b392 .jeg-elementor-kit.jkit-testimonials .testimonials-track:not(.tns-slider) .testimonial-item:nth-child(n+3) { display: none; } }@media (min-width: 768px) and (max-width: 1024px) {.elementor-element.elementor-element-7f72b392 .jeg-elementor-kit.jkit-testimonials .testimonials-track:not(.tns-slider):not(:nth-child(2)) { margin-right: 10px; } }@media (max-width: 767px) {.elementor-element.elementor-element-7f72b392 .jeg-elementor-kit.jkit-testimonials .testimonials-track:not(.tns-slider) { display: flex; flex-direction: row; } }@media (max-width: 767px) {.elementor-element.elementor-element-7f72b392 .jeg-elementor-kit.jkit-testimonials .testimonials-track:not(.tns-slider) .testimonial-item { width: calc(1) } }@media (max-width: 767px) {.elementor-element.elementor-element-7f72b392 .jeg-elementor-kit.jkit-testimonials .testimonials-track:not(.tns-slider) .testimonial-item:nth-child(n+2) { display: none; } }@media (max-width: 767px) {.elementor-element.elementor-element-7f72b392 .jeg-elementor-kit.jkit-testimonials .testimonials-track:not(.tns-slider):not(:nth-child(1)) { margin-right: 10px; } }
 /*# sourceURL=elementor-frontend-inline-css */
 </style>
-<style id="hide-dws-button-mobile">
+<style id="dws-button-responsive">
+/* Retreat button: on tablets & phones the boxes above it stack, so give it some room */
 @media (max-width: 1024px) {
-    .elementor-element.elementor-element-7f135d6 {
-        display: none !important;
+    .elementor-281 .elementor-element.elementor-element-7f135d6 > .elementor-widget-container {
+        margin-top: 18px;
     }
 }
-
+/* On phones, drop the 60px indent so it lines up with "Explore trips" and the title fits on one line */
+@media (max-width: 767px) {
+    .elementor-281 .elementor-element.elementor-element-7f135d6 > .elementor-widget-container {
+        margin-left: 0;
+    }
+}
 </style>
 <link rel='stylesheet' id='widget-image-css' href='wp-content/plugins/elementor/assets/css/widget-image.min.css@ver=4.0.9.css' media='all' />
 <link rel='stylesheet' id='e-animation-fadeIn-css' href='wp-content/plugins/elementor/assets/lib/animations/styles/fadeIn.min.css@ver=4.0.9.css' media='all' />
@@ -519,13 +525,13 @@ html, body {
             
             </div></div>				</div>
 				</div>
-				<!-- HIDDEN BUTTON - remove 'display:none' style to unhide -->
-				<div class="elementor-element elementor-element-7f135d6 elementor-button-info elementor-widget elementor-widget-button" data-id="7f135d6" data-element_type="widget" data-e-type="widget" data-widget_type="button.default" style="display:none">
+				<!-- RETREAT BUTTON - to hide it again, add style="display:none" to the div below -->
+				<div class="elementor-element elementor-element-7f135d6 elementor-button-info elementor-widget elementor-widget-button" data-id="7f135d6" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
 				<div class="elementor-widget-container">
 									<div class="elementor-button-wrapper">
 					<a class="elementor-button elementor-button-link elementor-size-sm" href="https://corealivenessproject.com/retraite-dws-nov-2026/?lang=en" target="_blank" rel="noopener">
 						<span class="elementor-button-content-wrapper">
-									<span class="elementor-button-text">Check our Fall DWS Retreats</span>
+									<span class="elementor-button-text">Join our DWS Retreat · <span style="white-space:nowrap">Nov 16–21</span></span>
 					</span>
 					</a>
 				</div>
